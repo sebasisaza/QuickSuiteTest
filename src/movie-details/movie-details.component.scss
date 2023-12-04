@@ -1,0 +1,60 @@
+.movie-details{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: system-ui;
+    
+    h1{
+        font-size: 40px;
+        margin: 0;
+    }
+
+    span{
+        font-style: italic;
+        color: #929292;
+    }
+
+    .btn{
+        width: 300px;
+        height: 36px;
+        border-radius: 7px;
+        border: none;
+        background-color: #042f67;
+        color: #fff;
+    }
+
+    .btn:hover{
+        background-color: #2861ab;
+        cursor: pointer;
+    }
+}
+
+.movie-info{
+    margin: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+    .img{
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .details{
+        display: flex;
+        flex-direction: column;
+        
+        strong{
+            margin-top: 10px;
+        }
+
+        .added{
+            color: #bec71c;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+<div class="movies">
+
+  <h1>MOVIES</h1>
+
+  <span>Check below our latest movies out...</span>
+  
+  <div class="sort">
+      <label>Sort by</label>
+      <ng-select 
+          [items]="options" 
+          bindValue="value"
+          bindLabel="value" 
+          [clearable]="false"
+          [(ngModel)]="selectedOption"
+          (change)="onChange($event)">
+      </ng-select>
+      <button class="btn" (click)="onBtnClick()">
+        <i *ngIf="sortIsDown" class="fa fa-arrow-down" aria-hidden="true"></i>
+        <i *ngIf="!sortIsDown" class="fa fa-arrow-up" aria-hidden="true"></i>
+      </button>
+
+  </div>
+
+  <div class="movies-list">
+
+    <div class="thumbnail" *ngFor="let movie of data">
+
+      <div>
+          <div class="movie" [style.background-image]="'url(/assets/resources/' + movie.imgUrl + '.png)'" (click)="onMovieClick(movie.id)">
+            
+            <span *ngIf="movie.isWatchlist">On my watchlist</span>
+            
+          </div>
+          
+          <div class="info">
+            
+          <label>Title:</label>
+          <span>{{ movie.title }}</span>
+          
+          <label>Released date:</label>
+          <span>{{ movie.releasedDate }}</span>
+          
+        </div>
+      </div>
+
+      <button class="btn" (click)="onAddWatchList(movie.id)">
+          <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+          Add to Watchlist
+      </button>
+
+    </div>
+
+
+
+  </div>
+
+
+</div>

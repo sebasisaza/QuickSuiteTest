@@ -1,0 +1,57 @@
+<div class="movie-details">
+
+    <button class="btn" routerLink="/">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        Back to movies
+    </button>
+
+    <h1>MOVIE DETAILS</h1>
+  
+    <span>{{ movie.title }}</span>
+  
+    <div class="movie-info">
+
+        <div class="img">       
+            <img src='{{ "/assets/resources/" + movie.imgUrl + ".png" }}'>
+        </div>
+
+        <div class="details">
+
+            <strong>Description</strong>
+            <span>{{ movie.description }}</span>
+
+            <strong>Raiting</strong>
+            <span>{{ movie.raiting }}</span>
+
+            <strong>Duration</strong>
+            <span>{{ movie.duration }}</span>
+
+            <strong>Genre</strong>
+            <span>{{ movie.genre }}</span>
+
+            <strong>ReleasedDate</strong>
+            <span>{{ movie.releasedDate }}</span>
+
+            <strong class="added" *ngIf="movie.isWatchlist">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                Added to Watchlist
+            </strong>
+
+        </div>
+        
+        <div>
+            <iframe 
+                width="700"
+                height="350"
+                [src]="getUrlId(movie.trailerLink)"
+            ></iframe>
+        </div>
+  
+    </div>
+
+    <button class="btn" (click)="onAddtoWatchList(movie.id)">
+        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+        Add to Watchlist
+    </button>
+  
+  </div>
